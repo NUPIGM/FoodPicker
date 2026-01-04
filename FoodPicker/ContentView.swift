@@ -27,6 +27,11 @@ struct ContentView: View {
                 Text(selectedFood ?? "还没选好")
                     .bold()
                     .foregroundStyle(.green)
+//                    .transition(.asymmetric(
+//                        insertion: .opacity
+//                                    .animation(.easeInOut(duration: 0.5).delay(0.2)),
+//                        removal: .opacity
+//                                    .animation(.easeInOut(duration: 0.4))))
                     
             }
             
@@ -49,7 +54,9 @@ struct ContentView: View {
             .buttonStyle(.glass)
         }
         .font(.title)
-        .animation(.easeInOut, value: selectedFood)
+        .frame(maxHeight: .infinity)
+        .background(Color(.secondarySystemBackground))
+        .animation(.easeInOut(duration: 1), value: selectedFood)
 
     }
 }
